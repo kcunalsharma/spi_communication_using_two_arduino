@@ -1,7 +1,7 @@
 
-char b;
+char ReceivedData;
 /* ATMEGA328P PINS
- *  PB4 IS MISO
+ * PB4 IS MISO, D 12 Pin of Arduino board
  */
 
 /*spi slave program*/
@@ -18,6 +18,8 @@ unsigned char SPI_slaveReceive(void)
     while (!(SPSR & (1 << SPIF)))
         ;
     return SPDR;
+   
+    
 }
 
 void setup()
@@ -27,6 +29,6 @@ void setup()
 }
 void loop()
 {
-    // b = (char)SPI_slaveReceive();
-    Serial.println((char)SPI_slaveReceive());
+     ReceivedData = (char)SPI_slaveReceive();
+     Serial.println(ReceivedData);
 }
