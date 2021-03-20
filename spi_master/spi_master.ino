@@ -2,10 +2,10 @@
 
 
 /* SPI AS A MASTER
-PB2 is select slave
-PB3 is mosi
-PB5 is clock
-these all are port B PINS OF ATMEGA328P
+PB2 is select slave, D10 - digital Pin of Arduino
+PB3 is mosi, D11 - digital Pin of Arduino
+PB5 is clock, D13 - digital Pin of Arduino
+these all are port B PINS OF ATMEGA328P and D pins refer to digital Pins of arduino board
 */
 void SPI_masterInit(void)
 {
@@ -26,10 +26,11 @@ void transmit(unsigned char data)
 void setup()
 {
     Serial.begin(9600);
-    SPI_masterInit();
-    transmit(61);
 }
 
 void loop()
 {
+   SPI_masterInit();
+   transmit(57);
+   delay(3000);
 }
